@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Gambler Token – The Gambler Token</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The Gambler Token (tGt) – a degen meme coin born from a failed decentralized slot dream, reborn with an on-chain Random Reward Program and a fully transparent token model."
+  />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #05040a;
+      --bg-soft: #0c0816;
+      --bg-softer: #141025;
+      --primary: #ffd447;
+      --primary-soft: rgba(255, 212, 71, 0.18);
+      --accent-pink: #ff6fd8;
+      --accent-cyan: #6cf1ff;
+      --accent-purple: #b184ff;
+      --text-main: #f7f5ff;
+      --text-muted: #a6a0c8;
+      --danger: #ff4f6a;
+      --border-soft: #2a243f;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 26px 70px rgba(0, 0, 0, 0.75);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #302468 0, #05040a 45%, #020109 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 18px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Fun anime glow blobs */
+    .blob {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: 0.65;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 {
+      background: radial-gradient(circle, var(--accent-pink), transparent 60%);
+      top: -80px;
+      left: -40px;
+    }
+    .blob-2 {
+      background: radial-gradient(circle, var(--accent-cyan), transparent 60%);
+      bottom: 40px;
+      right: -60px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(7, 5, 18, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 999px;
+      background:rgba(7, 5, 18, 0.94);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Baloo 2", system-ui;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1b1300;
+      /* box-shadow:linear-gradient(120deg, var(--accent-pink), var(--accent-purple)); */
+      transform: rotate(-6deg);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: background 0.18s ease, transform 0.1s ease, color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.nav-cta {
+      background: linear-gradient(120deg, var(--accent-pink), var(--accent-purple));
+      color: #140617;
+      font-weight: 600;
+      box-shadow: 0 10px 26px rgba(255, 111, 216, 0.7);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-text {
+      padding: 24px 22px 22px;
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at top left, rgba(255, 212, 71, 0.25), transparent 60%),
+        linear-gradient(145deg, rgba(10, 6, 26, 0.96), rgba(7, 4, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 212, 71, 0.7);
+      background: rgba(7, 5, 14, 0.9);
+      color: var(--primary);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fff9c2 0, #ffd447 50%, #f6a800 100%);
+      box-shadow: 0 0 12px rgba(255, 212, 71, 0.9);
+    }
+
+    .hero-title {
+      font-family: "Baloo 2", system-ui;
+      font-size: clamp(32px, 5vw, 40px);
+      line-height: 1.02;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, var(--accent-pink), var(--primary), var(--accent-cyan));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 16px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text-main);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+      justify-content: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: transform 0.1s ease, box-shadow 0.16s ease,
+        background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent-pink), var(--accent-purple));
+      border-color: rgba(0, 0, 0, 0.8);
+      color: #110516;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(255, 111, 216, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(255, 111, 216, 0.85);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(7, 5, 16, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .btn .chevron {
+      font-size: 15px;
+      transform: translateY(1px);
+    }
+
+    .hero-now {
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 4px auto 4px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      justify-content: center;
+    }
+
+    .hero-tags span {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(7, 5, 18, 0.95);
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: baseline;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--text-muted);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-cyan);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 18px 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-body p + p {
+      margin-top: 7px;
+    }
+
+    .list-dot {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .list-dot li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .list-dot li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .muted {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* TOKENOMICS */
+    .tokenomics-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .token-chip {
+      border-radius: 14px;
+      padding: 10px 10px;
+      background: rgba(11, 8, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+    }
+
+    .token-chip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .token-chip-title {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .token-chip-percent {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--primary);
+    }
+
+    .token-chip-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .token-bars {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(9, 6, 20, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+    }
+
+    .token-bars-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .bar-label {
+      width: 120px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-pink), var(--primary));
+      width: 0%;
+    }
+
+    .bar-fill[data-percent="10"] { width: 10%; }
+    .bar-fill[data-percent="30"] { width: 30%; }
+    .bar-fill[data-percent="40"] { width: 40%; }
+    .bar-fill[data-percent="5"]  { width: 5%; }
+    .bar-fill[data-percent="7"]  { width: 7%; }
+    .bar-fill[data-percent="3"]  { width: 3%; }
+
+    /* RANDOM REWARD FLOW */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    .flow-step {
+      background: rgba(11, 8, 24, 0.98);
+      border-radius: 14px;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      padding: 9px 9px;
+    }
+
+    .flow-step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 212, 71, 0.14);
+      border: 1px solid rgba(255, 212, 71, 0.8);
+      color: var(--primary);
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .flow-step-title {
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .flow-step-text {
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ROADMAP CARDS */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .roadmap-card {
+      border-radius: 16px;
+      padding: 12px 11px;
+      background:
+        linear-gradient(145deg, rgba(255, 111, 216, 0.12), rgba(10, 7, 22, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .roadmap-year {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-list {
+      list-style: none;
+      padding-left: 0;
+      color: var(--text-muted);
+    }
+
+    .roadmap-list li {
+      margin-bottom: 4px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .roadmap-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* COMMUNITY / SOCIALS */
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 7, 20, 0.96);
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.26);
+    }
+
+    .social-icon {
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .grid-2,
+      .tokenomics-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .flow {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .roadmap-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .token-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .bar-label {
+        width: 90px;
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Anime-ish glow blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <main>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="logo-circle"> <img src="imges/logo-pi.png" style="width: 60px; border-radius: 50px; " alt=""> </div>
+        <div class="brand">
+          <span class="brand-title" style="margin-left: 10px;">The Gambler Token</span>
+          <span class="brand-subtitle">The Gambler Token • On-chain Random Reward Experiment</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#reward">Random Rewards</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="nav-cta" href="#community">Join degen side</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>We tried. We failed. We memed.</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-highlight">The Gambler Token (tGt)</span> – the meme coin<br />
+          born from a failed<br />
+          decentralized slot dream.
+        </h1>
+        <p class="hero-subtitle">
+          Once upon a bull run, we tried to launch a <strong>decentralized slot game</strong>.
+          Funds were low, leverage was high, market was brutal.
+          The game never shipped – but the story did. Now
+          <strong>tGt</strong> lives as a meme coin with a very real
+          <strong>on-chain Random Reward Program</strong>.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="scrollToId('tokenomics')">
+            View Tokenomics
+            <span class="chevron">↘</span>
+          </button>
+          <button class="btn btn-ghost" onclick="scrollToId('story')">
+            Read the full degen lore
+          </button>
+        </div>
+
+        <p class="hero-now">
+          Now: tGt = a meme currency with a 10-year Random Reward Program and a penchant for troll DApp development.
+          The chain determines the winner, not us.
+        </p>
+
+        <div class="hero-tags">
+          <span>Symbol: <strong>tGt</strong></span>
+          <span>Reward pool: <strong>30% of supply</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story">
+      <div class="section-header">
+        <div>
+          <div class="section-title">The Gambler Story</div>
+        </div>
+        <div class="section-sub">
+          A very serious attempt at a decentralized slot game turned into a very unserious meme coin.
+          This is our official <em>“we tried our best”</em> lore.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3 class="card-title">Act I – The Decentralized Slot Dream</h3>
+          <div class="card-body">
+            <p>
+              In <strong>2023</strong>, we had one simple idea:
+              build a <strong>fully on-chain, transparent slot game</strong>.
+            </p>
+            <p>
+              Two roadmaps, listing announcements and presale contracts were written for
+              <strong>tGt</strong>. We wanted every spin to be verifiable, every payout visible,
+              and every gambler to see the math behind the madness.
+            </p>
+            <p>
+              Then reality hit: <strong>no VC money, no big treasury</strong>, and one brave
+              team member who believed in <em>50x leverage</em> more than in risk management.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Act II – Bear Market & Leverage L’s</h3>
+          <div class="card-body">
+            <p>
+              2023–2025 became a collection of greatest hits:
+              <strong>market crashes, rugs, attacks, bad actors, and endless FUD</strong>.
+            </p>
+            <p>
+              We didn’t rug. We didn’t exit scam.  
+              We simply… <strong>failed to launch</strong>.
+            </p>
+            <p>
+              At some point, the lead dev realized:
+              <em>“We’re not a blue chip. We’re a meme with extra steps.”</em>  
+              So we embraced it. tGt stopped pretending to be a perfect product and became what it truly is:
+              <strong>a meme about surviving blockchain chaos</strong>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Tokenomics</div>
+          <div class="badge" style="margin-top: 6px;">
+            <span class="badge-dot"></span>
+            <span>Total supply distributed 100% on-chain</span>
+          </div>
+        </div>
+        <div class="section-sub">
+          No mystery wallets, no “team can mint more”, no shadow allocations.
+          Just a brutally honest breakdown of how tGt is sliced.
+        </div>
+      </div>
+
+      <div class="tokenomics-wrapper">
+        <div class="card">
+          <h3 class="card-title">Allocation Overview</h3>
+          <div class="card-body">
+            <p>
+              Total supply is split into several buckets, all aimed at either:
+              <strong>rewarding degen believers</strong>, 
+              <strong>keeping liquidity alive</strong>, or
+              <strong>funding future chaos (aka DApps)</strong>.
+            </p>
+
+            <div class="token-grid">
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Genesis Airdrop</span>
+                  <span class="token-chip-percent">10%</span>
+                </div>
+                <div class="token-chip-desc">
+                  The OG airdrop for early degenerates, community members and storytellers
+                  who joined before The Gambler Token became self-aware.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Random Reward Program</span>
+                  <span class="token-chip-percent">30%</span>
+                </div>
+                <div class="token-chip-desc">
+                  Locked into an ownerless contract, emitted over ~10 years to
+                  randomly selected holders with 500k+ tGt. Pure on-chain experiment.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Listings & Liquidity</span>
+                  <span class="token-chip-percent">40%</span>
+                </div>
+                <div class="token-chip-desc">
+                  CEX/DEX listings, liquidity pools, and making sure there’s
+                  actually a market when people ask “gm wen listing?”.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Arbitrage & Ops</span>
+                  <span class="token-chip-percent">5%</span>
+                </div>
+                <div class="token-chip-desc">
+                  For market-making, arbitrage support and preventing complete chart collapse
+                  when the market chooses violence.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Team</span>
+                  <span class="token-chip-percent">7%</span>
+                </div>
+                <div class="token-chip-desc">
+                  For the devs who survived the leverage incident and decided to turn trauma
+                  into content instead of disappearing.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">Development</span>
+                  <span class="token-chip-percent">3%</span>
+                </div>
+                <div class="token-chip-desc">
+                  Audits, infra, bots, dashboards, and anything that makes tGt feel
+                  slightly more professional than it actually is.
+                </div>
+              </div>
+
+              <div class="token-chip">
+                <div class="token-chip-header">
+                  <span class="token-chip-title">New DApp Integrations</span>
+                  <span class="token-chip-percent">5%</span>
+                </div>
+                <div class="token-chip-desc">
+                  Fuel for future DApps inside The Gambler Network – new games,
+                  new reward models, and new ways to lose with style.
+                </div>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 10px;">
+              All allocations are visible on-chain. No stealth unlocks, no surprise mints,
+              no secret “dev wallet #37”.
+            </p>
+          </div>
+        </div>
+
+        <div class="token-bars">
+          <div style="margin-bottom: 6px; font-weight: 600;">
+            Visual breakdown (for degen brains 🧠)
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Genesis Airdrop</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="10"></div>
+            </div>
+            <span>10%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Random Reward</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="30"></div>
+            </div>
+            <span>30%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Listings & LP</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="40"></div>
+            </div>
+            <span>40%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Arbitrage Ops</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="5"></div>
+            </div>
+            <span>5%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Team</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="7"></div>
+            </div>
+            <span>7%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">Dev</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="3"></div>
+            </div>
+            <span>3%</span>
+          </div>
+
+          <div class="token-bars-row">
+            <span class="bar-label">DApp Integrations</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-percent="5"></div>
+            </div>
+            <span>5%</span>
+          </div>
+
+          <p class="muted" style="margin-top: 6px;">
+            10 + 30 + 40 + 5 + 7 + 3 + 5 = 100%. Yes, we triple-checked the math.  
+            No, we didn’t use leverage this time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANDOM REWARD PROGRAM -->
+    <section id="reward">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Random Reward Program</div>
+          <div class="badge" style="margin-top: 6px;">
+            <span class="badge-dot"></span>
+            <span>10-year on-chain experiment</span>
+          </div>
+        </div>
+        <div class="section-sub">
+          30% of the total supply sits in an <strong>ownerless smart contract</strong>.
+          No withdraw function, no admin keys, no mercy. The chain picks winners, not us.
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <span class="muted">
+            If DeFi was “number go up”, this is more like
+            <strong>“number go random, maybe up, maybe down”</strong>.
+          </span>
+          <span class="muted">
+            Minimum 500k tGt balance to be part of the chaos.
+          </span>
+        </div>
+
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-step-index">1</div>
+            <div class="flow-step-title">Pool locked</div>
+            <p class="flow-step-text">
+              30% of supply is sent to a dedicated contract. It has <strong>no owner</strong>,
+              no emergency exit button, and definitely no “oops, dev needed funds” function.
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">2</div>
+            <div class="flow-step-title">Snapshot</div>
+            <p class="flow-step-text">
+              Approximately every <strong>2 months</strong>, the system compiles eligible
+              wallets: holders with <strong>&gt; 500,000 tGt</strong> during the cycle.
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">3</div>
+            <div class="flow-step-title">Random selection</div>
+            <p class="flow-step-text">
+              A subset of them is selected using an on-chain selection logic. Each lucky
+              degen gets a reward assignment (base model: <strong>50,000 tGt</strong>).
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">4</div>
+            <div class="flow-step-title">Claim window</div>
+            <p class="flow-step-text">
+              Selected wallets have roughly <strong>2 months</strong> to claim.
+              Unclaimed rewards stay in the pool, stretching the program over years.
+            </p>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top: 10px;">
+          This is not a guaranteed yield, not a financial product, not legal advice, not
+          investment advice, not mental-health advice. It’s an
+          <strong>on-chain meme experiment</strong> that you can verify yourself.
+        </p>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Roadmap</div>
+        </div>
+        <div class="section-sub">
+          No promises, only vibes.  
+          But here’s roughly how we’ll try to not disappear.
+        </div>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card">
+          <div class="roadmap-year">2025</div>
+          <div class="roadmap-title">Meme Rebirth & Setup</div>
+          <ul class="roadmap-list">
+            <li>Launch The Gambler Token (tGt) as official meme coin of The Gambler Network.</li>
+            <li>Deploy Random Reward Contract and fund it with 30% supply.</li>
+            <li>Get the community to accept that this is serious and not serious at the same time.</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-year">2026</div>
+          <div class="roadmap-title">DApp & Ecosystem</div>
+          <ul class="roadmap-list">
+            <li>Experiment with new on-chain mini-games using tGt.</li>
+            <li>Use DApp integration allocation (5%) to plug tGt into partner projects.</li>
+            <li>Build dashboards to track reward cycles and holder stats.</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="roadmap-year">Beyond</div>
+          <div class="roadmap-title">Fully Meme-Driven Economy</div>
+          <ul class="roadmap-list">
+            <li>Let the community vote on new meme campaigns & airdrop missions.</li>
+            <li>Iterate on Random Reward mechanics as tech evolves.</li>
+            <li>Stay small, weird, transparent – and on-chain.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / SOCIAL -->
+    <section id="community">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Join The Degen Side</div>
+        </div>
+        <div class="section-sub">
+          We’re not promising the moon. Just good memes, honest tokenomics, and a chain that
+          refuses to forget our mistakes. That’s something.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Social Links</h3>
+        <div class="card-body">
+          <p>
+            Real socials, real chaos. These are the only links you should trust for now.
+          </p>
+
+          <div class="social-row">
+            <a class="social-btn" href="https://x.com/TGamblernetwork" target="_blank">
+              <span class="social-icon">🐦</span>
+              <span>X (Twitter)</span>
+            </a>
+            <a class="social-btn" href="https://t.me/+2MdKSKf_-CgwMTk0" target="_blank">
+              <span class="social-icon">💬</span>
+              <span>Telegram</span>
+            </a>
+            <a class="social-btn" href="https://share.google/4C66VBAFUm6hlXPUG" target="_blank">
+              <span class="social-icon">📦</span>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <p class="muted" style="margin-top: 10px;">
+            Always double-check links from fake accounts. If they don’t match these, they’re probably rugged.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© <span id="year"></span> The Gambler Network · The Gambler Token (tGt) Meme Coin Experiment</span>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#reward">Random Reward Program</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = 90;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
