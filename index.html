@@ -13,8 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
   <style>
     :root {
@@ -113,13 +114,12 @@
       height: 50px;
       border-radius: 999px;
       background:rgba(7, 5, 18, 0.94);
-
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Baloo 2", system-ui;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 10px;
       color: #1b1300;
       /* box-shadow:linear-gradient(120deg, var(--accent-pink), var(--accent-purple)); */
       transform: rotate(-6deg);
@@ -635,6 +635,58 @@
     .social-icon {
       font-size: 14px;
     }
+    /* end */
+    /* TEAM CARDS – roadmap compatible */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  font-size: 12px;
+}
+
+.team-card {
+  border-radius: 16px;
+  padding: 12px 11px;
+  background:
+    linear-gradient(145deg, rgba(255, 111, 216, 0.12), rgba(10, 7, 22, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header bits */
+.team-role {
+  font-size: 11px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* List matches roadmap bullets */
+.team-list {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-muted);
+}
+
+.team-list li {
+  margin-bottom: 4px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.team-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
 
     /* FOOTER */
     footer {
@@ -711,11 +763,13 @@
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#story">Story</a>
-        <a href="#tokenomics">Tokenomics</a>
-        <a href="#reward">Random Rewards</a>
+        <a href="#Blokchaine">Blokchain Explorer</a>
+        <a href="#tokenomics">G-Story</a>
+        <a href="#reward">Tokenomics</a>
+        <a href="#randomReward">Programs</a>
         <a href="#roadmap">Roadmap</a>
-        <a class="nav-cta" href="#community">Join degen side</a>
+        <a href="#Contract">Contracts</a>
+        <a class="nav-cta" href="#community">community</a>
       </nav>
     </header>
 
@@ -760,9 +814,48 @@
         </div>
       </div>
     </section>
+    <!-- end section -->
+
+
+    <!-- Blokchain Explorer -->
+    <section id="Blokchaine">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Blokchain Explorer</div>
+         
+        </div>
+       
+      </div>
+
+      <div class="card">
+<h3 class="card-title">What is tGt v2? </h3>
+ <p class="muted" style="margin-top: 10px;">
+         <strong>tGt v2 </strong> is a standard ERC-20 token deployed on the Ethereum mainnet under the name TheGambler with the symbol tGt, using 18 decimals and a fixed total supply of 1 billion, identical to tGt v1. 
+         The token is implemented using <strong> OpenZeppelin’s ERC-20 </strong>standard and features correct and secure approve/allowance behavior, along with EIP-2612 Permit support for gasless approvals. 
+         tGt v2 is minted only once at deployment, has no inflation, no transfer taxes or fees, no blacklist, no pause functionality, and no privileged owner controls, and is designed as an <strong>immutable, audit-friendly smart contract.</strong>
+        </p>
+        <br>
+
+          <a class="social-btn" href="https://etherscan.io/token/0x6459bC1a61288234e5DFB64b16AB866019847e7C?a=0xD98cE20B1f06D52CC22aDD93ca648740996509EE#code" target="_blank">
+            <span class="social-icon"><i class="fa-solid fa-file-contract"></i></span>
+
+              <span class="social-icon"> tGtV2 Token Contract</span>
+              <!-- <span>X</span> -->
+            </a>
+              <a class="social-btn" href="https://arbiscan.io/token/0x1de40d6f5d91ab9e4a3cabe99fb588b9da73e676" target="_blank">
+            <span class="social-icon"><i class="fa-solid fa-file-contract"></i></span>
+
+              <span class="social-icon"> Arbitrum bridge</span>
+              <!-- <span>X</span> -->
+            </a>
+
+      
+      </div>
+    </section>
+<!-- end section -->
 
     <!-- STORY -->
-    <section id="story">
+    <section id="tokenomics">
       <div class="section-header">
         <div>
           <div class="section-title">The Gambler Story</div>
@@ -816,7 +909,7 @@
     </section>
 
     <!-- TOKENOMICS -->
-    <section id="tokenomics">
+    <section id="reward">
       <div class="section-header">
         <div>
           <div class="section-title">Tokenomics</div>
@@ -998,7 +1091,7 @@
     </section>
 
     <!-- RANDOM REWARD PROGRAM -->
-    <section id="reward">
+    <section id="randomReward">
       <div class="section-header">
         <div>
           <div class="section-title">Random Reward Program</div>
@@ -1112,6 +1205,56 @@
       </div>
     </section>
 
+
+    <!-- TgT Token section -->
+
+    <section id="Contract">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Contract Addresses</div>
+        </div>
+        <!-- <div class="section-sub">
+          We’re not promising the moon. Just good memes, honest tokenomics, and a chain that
+          refuses to forget our mistakes. That’s something.
+        </div> -->
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Smart contract</h3>
+        <div class="card-body">
+          <!-- <p>
+            Real socials, real chaos. These are the only links you should trust for now.
+          </p> -->
+
+          <div class="social-row">
+          
+
+            <a class="social-btn" href="https://share.google/tbU6FSeIgh1JlCB31" target="_blank">
+              <span class="social-icon"><i class="fa-solid fa-sun"></i></span>
+              <span>Random Reward Program Contract Address</span>
+            </a>
+
+              <a class="social-btn" href="https://share.google/CiuPVr4k5Fezacx4e" target="_blank">
+              <span class="social-icon"><i class="fa-solid fa-sun"></i></span>
+              <span>Developer Vault Contract Address</span>
+            </a>
+
+             <a class="social-btn" href="https://share.google/YiNMyVClOu2QYorxy" target="_blank">
+              <span class="social-icon"><i class="fa-solid fa-sun"></i></span>
+              <span>Team Vesting Contract Address</span>
+            </a>
+
+   <a class="social-btn" href="https://arbiscan.io/address/0xb0938ca5c6e0e3fc609897be022ac84776a23f17#code" target="_blank">
+              <span class="social-icon"><i class="fa-solid fa-sun"></i></span>
+              <span>tGt Liquidity Support Contract Address (Test-Net)</span>
+            </a>
+           
+         </div>
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+
     <!-- COMMUNITY / SOCIAL -->
     <section id="community">
       <div class="section-header">
@@ -1134,18 +1277,20 @@
           <div class="social-row">
             <a class="social-btn" href="https://x.com/TGamblernetwork" target="_blank">
               <span class="social-icon">🐦</span>
-              <span>X (Twitter)</span>
+              <span>X</span>
             </a>
             <a class="social-btn" href="https://t.me/+2MdKSKf_-CgwMTk0" target="_blank">
-              <span class="social-icon">💬</span>
+              <span class="social-icon"><i class="fa-brands fa-telegram"></i></span>
               <span>Telegram</span>
             </a>
             <a class="social-btn" href="https://share.google/4C66VBAFUm6hlXPUG" target="_blank">
-              <span class="social-icon">📦</span>
+              <span class="social-icon"><i class="fa-brands fa-github"></i></span>
               <span>GitHub</span>
             </a>
-            <a class="social-btn" href="mailto:contact@thegamblertoken.xyz">
-  <span class="social-icon">📧</span>
+               <a class="social-btn"
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@thegamblertoken.xyz"
+   target="_blank">
+  <span class="social-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
   <span>Gmail: contact@thegamblertoken.xyz</span>
 </a>
 
@@ -1157,6 +1302,44 @@
         </div>
       </div>
     </section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header">
+    <div>
+      <div class="section-title">About the Team</div>
+    </div>
+    <div class="section-sub">
+      Small team. Big ideas.  
+      Built without suits, pitch decks, or corporate energy.
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-role">Founder & Developer</div>
+      <div class="team-name">Ekrem Unlu</div>
+      <ul class="team-list">
+        <li>Turned a meme into something suspiciously functional.</li>
+        <li>Builds smart contracts with equal parts logic and chaos.</li>
+        <li>Believes experimentation beats perfection.</li>
+      </ul>
+    </div>
+
+    <div class="team-card">
+      <div class="team-role">Designer & Developer</div>
+      <div class="team-name">Dlkhwaz Othman</div>
+      <ul class="team-list">
+        <li>Shapes ideas into interfaces that actually make sense.</li>
+        <li>Keeps things clean, usable, and slightly unhinged.</li>
+        <li>Still believes good design can save bad ideas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
 
     <!-- FOOTER -->
     <footer>
