@@ -114,13 +114,12 @@
       height: 50px;
       border-radius: 999px;
       background:rgba(7, 5, 18, 0.94);
-
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Baloo 2", system-ui;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 10px;
       color: #1b1300;
       /* box-shadow:linear-gradient(120deg, var(--accent-pink), var(--accent-purple)); */
       transform: rotate(-6deg);
@@ -636,6 +635,58 @@
     .social-icon {
       font-size: 14px;
     }
+    /* end */
+    /* TEAM CARDS – roadmap compatible */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  font-size: 12px;
+}
+
+.team-card {
+  border-radius: 16px;
+  padding: 12px 11px;
+  background:
+    linear-gradient(145deg, rgba(255, 111, 216, 0.12), rgba(10, 7, 22, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header bits */
+.team-role {
+  font-size: 11px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* List matches roadmap bullets */
+.team-list {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-muted);
+}
+
+.team-list li {
+  margin-bottom: 4px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.team-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
 
     /* FOOTER */
     footer {
@@ -712,11 +763,13 @@
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#story">Story</a>
-        <a href="#tokenomics">Tokenomics</a>
-        <a href="#reward">Random Rewards</a>
+        <a href="#Blokchaine">Blokchain Explorer</a>
+        <a href="#tokenomics">G-Story</a>
+        <a href="#reward">Tokenomics</a>
+        <a href="#randomReward">Programs</a>
         <a href="#roadmap">Roadmap</a>
-        <a class="nav-cta" href="#community">Join degen side</a>
+        <a href="#Contract">Contracts</a>
+        <a class="nav-cta" href="#community">community</a>
       </nav>
     </header>
 
@@ -765,7 +818,7 @@
 
 
     <!-- Blokchain Explorer -->
-    <section id="reward">
+    <section id="Blokchaine">
       <div class="section-header">
         <div>
           <div class="section-title">Blokchain Explorer</div>
@@ -802,7 +855,7 @@
 <!-- end section -->
 
     <!-- STORY -->
-    <section id="story">
+    <section id="tokenomics">
       <div class="section-header">
         <div>
           <div class="section-title">The Gambler Story</div>
@@ -856,7 +909,7 @@
     </section>
 
     <!-- TOKENOMICS -->
-    <section id="tokenomics">
+    <section id="reward">
       <div class="section-header">
         <div>
           <div class="section-title">Tokenomics</div>
@@ -1038,7 +1091,7 @@
     </section>
 
     <!-- RANDOM REWARD PROGRAM -->
-    <section id="reward">
+    <section id="randomReward">
       <div class="section-header">
         <div>
           <div class="section-title">Random Reward Program</div>
@@ -1155,7 +1208,7 @@
 
     <!-- TgT Token section -->
 
-    <section id="community">
+    <section id="Contract">
       <div class="section-header">
         <div>
           <div class="section-title">Contract Addresses</div>
@@ -1249,6 +1302,44 @@
         </div>
       </div>
     </section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header">
+    <div>
+      <div class="section-title">About the Team</div>
+    </div>
+    <div class="section-sub">
+      Small team. Big ideas.  
+      Built without suits, pitch decks, or corporate energy.
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-role">Founder & Developer</div>
+      <div class="team-name">Ekrem Unlu</div>
+      <ul class="team-list">
+        <li>Turned a meme into something suspiciously functional.</li>
+        <li>Builds smart contracts with equal parts logic and chaos.</li>
+        <li>Believes experimentation beats perfection.</li>
+      </ul>
+    </div>
+
+    <div class="team-card">
+      <div class="team-role">Designer & Developer</div>
+      <div class="team-name">Dlkhwaz Othman</div>
+      <ul class="team-list">
+        <li>Shapes ideas into interfaces that actually make sense.</li>
+        <li>Keeps things clean, usable, and slightly unhinged.</li>
+        <li>Still believes good design can save bad ideas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
 
     <!-- FOOTER -->
     <footer>
