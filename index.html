@@ -686,6 +686,39 @@
   left: 0;
   color: var(--primary);
 }
+.team-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.team-btn:hover {
+  opacity: 1;
+  background: rgba(0, 255, 255, 0.08);
+  border-color: var(--accent-cyan);
+}
+
+.team-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+.team-avatar {
+  box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.15);
+}
+
 
 
     /* FOOTER */
@@ -1276,9 +1309,14 @@
 
           <div class="social-row">
             <a class="social-btn" href="https://x.com/TGamblernetwork" target="_blank">
-              <span class="social-icon">🐦</span>
-              <span>X</span>
+              <span class="social-icon"> <svg viewBox="0 0 24 24" width="12" height="12">
+      <path fill="currentColor"
+        d="M18.244 2H21.5l-7.49 8.56L22.5 22h-6.54l-5.13-6.48L5.34 22H2.08
+        l7.99-9.14L1.5 2h6.7l4.63 5.85L18.24 2z"/>
+    </svg></span>
+              <span>Platform</span>
             </a>
+            
             <a class="social-btn" href="https://t.me/+2MdKSKf_-CgwMTk0" target="_blank">
               <span class="social-icon"><i class="fa-brands fa-telegram"></i></span>
               <span>Telegram</span>
@@ -1317,23 +1355,50 @@
 
   <div class="team-grid">
     <div class="team-card">
+      <img
+    src="images/dlkhwaz.jpeg"
+    alt="Ekrem Unlu"
+    class="team-avatar"
+  />
       <div class="team-role">Founder & Developer</div>
       <div class="team-name">Ekrem Unlu</div>
+
       <ul class="team-list">
         <li>Turned a meme into something suspiciously functional.</li>
         <li>Builds smart contracts with equal parts logic and chaos.</li>
         <li>Believes experimentation beats perfection.</li>
       </ul>
+
+      <a
+        href="https://www.linkedin.com/in/ekrem-unlu-36657933a/"
+        target="_blank"
+        class="team-btn"
+      >
+        Connect on LinkedIn
+      </a>
     </div>
 
     <div class="team-card">
+      <img
+    src="images/ekren.jpeg"
+    alt="Ekrem Unlu"
+    class="team-avatar"
+  />
       <div class="team-role">Designer & Developer</div>
       <div class="team-name">Dlkhwaz Othman</div>
+
       <ul class="team-list">
         <li>Shapes ideas into interfaces that actually make sense.</li>
         <li>Keeps things clean, usable, and slightly unhinged.</li>
         <li>Still believes good design can save bad ideas.</li>
       </ul>
+
+      <a
+        href="https://www.linkedin.com/in/dlxwaz-se-a31063389/"
+        target="_blank"
+        class="team-btn">
+        Connect on LinkedIn
+      </a>
     </div>
   </div>
 </section>
